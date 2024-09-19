@@ -64,6 +64,24 @@ app.get("/getToken", async (req, res) => {
   res.send(await createToken());
 });
 
+app.post('/teacher/entrance-check', async(req, res) => {
+  try {
+    const { email } = req.body;
+    const query = `SELECT * FROM teacher WHERE email=$1`;
+    const value = [email];
+    const result = await client.query(query, value);
+
+    if (result.rows[0].email == email) {
+      res.status(200).json(result.rows[0]);
+    }
+    else{
+      res.status(200).json({});
+    }
+  }catch (err) {
+  console.log(err);
+  res.status(500).send("error occured");
+}} )
+
 app.post("/teacher/auth", async (req, res) => {
   try {
     const { id } = req.body;

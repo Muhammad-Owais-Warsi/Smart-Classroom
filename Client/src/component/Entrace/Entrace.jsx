@@ -1,5 +1,5 @@
 // src/SplitPage.js
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@nextui-org/react";
 import { UserIcon } from "../../Icons/Usericon";
 import { Protect, useAuth, useUser} from "@clerk/clerk-react";
@@ -10,6 +10,8 @@ import axios from "axios";
 function SplitPage() {
   const { isSignedIn } = useAuth();
   const navigate = useNavigate();
+
+  const [isTeacher, setIsTeacher] = useState(false);
   if (!isSignedIn) {
     navigate("/login");
   }
@@ -46,6 +48,15 @@ function SplitPage() {
     }
     )
   }
+
+  function teacherEntranceCheck() {
+    axios.post("http://localhost:3000/teacher/entrance-check", {
+      email: email
+  }).then((res) => {
+    if (res.data != {}){
+      setIsTeacher(true);
+    }
+  })
 
   return (
     <div className="flex h-screen">
