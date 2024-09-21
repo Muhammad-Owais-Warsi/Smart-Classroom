@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faBook, faChalkboardTeacher, faClipboard } from '@fortawesome/free-solid-svg-icons';
 import { UserButton } from '@clerk/clerk-react';
+
 
 function CreateClass() {
     const [classCode, setClassCode] = useState('Nitin Dixit'); // Default code
@@ -95,4 +96,4 @@ function CreateClass() {
     );
 }
 
-export default CreateClass;
+export default CreateClass;

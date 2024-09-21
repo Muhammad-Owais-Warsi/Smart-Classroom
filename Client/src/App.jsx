@@ -5,7 +5,7 @@ import Lobby from "./component/Lobby/Lobby.jsx"
 import Room from "./component/VideoCall/VideoCall.jsx"
 import { PreJoin } from "@livekit/components-react"
 import Entrace from "./component/Entrace/Entrace.jsx"
-import Teacher from "./component/Dashboard/teacher.jsx"
+import Teacher from "./component/Dashboard/Teacher.jsx"
 import JoinClass from "./component/Class/JoinClass.jsx"
 import CreateClass from "./component/Class/CreateClass.jsx"
 import Student from "./component/Dashboard/Student.jsx"
@@ -24,6 +24,8 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>} />
         <Route path="/entrance" element={<Entrace/>}/>
+        <Route path="/student" element={<Student/>} />
+        <Route path='/teacher' element={<Teacher/>} />
       </Routes>
     </BrowserRouter>
   )
